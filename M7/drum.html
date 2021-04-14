@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+  <title>Nikhitha Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+
+  <section class="main-wrapper">
+
+    <h1 class="main-title"> Welcome to Nikhitha Drum 🥁 Kit </h1>
+    <div class="drum-kit-wrapper">
+    
+      <button class="key snare">T</button>
+      <button class="key kick">R</button>
+      <button class="key kick2">Js</button>
+      <button class="key tom-high">N</button>
+      <button class="key tom-mid">J</button>
+      <button class="key tom-low">M</button>
+      <button class="key crash">I</button>
+      <button class="key ride">S</button>
+      <button class="key hihat-open">U</button>
+      <button class="key hihat-close">T</button>
+      <img class="drum-kit" src="img/drum.jpg" alt="Drum Kit" />
+      <imgbackground-image="e1.j">
+    </div>
+  </section>
+</main>
+<style>
+  body {
+    background-image: url('e1.jfif');
+   
+  }
+</style>
+   
+  <script>
+noOfDrums = document.querySelectorAll(".key").length;
+    for(let i=0 ; i<noOfDrums ; i++){
+        console.log(document.querySelectorAll(".key")[i]);
+        document.querySelectorAll(".key")[i].addEventListener("click", function(){
+            let alpha= this.innerHTML;
+            makeSound(alpha);
+            
+        });
+    }
+
+    //button animation//
+
+    //for sound effect//
+
+    function makeSound(alpha) {
+        switch (alpha) {
+            case "T":
+                    let snare = new Audio("sounds/key_snare.wav");
+                    snare.play();
+                break;
+            
+            case "R":
+                    let kick1 = new Audio("sounds/key_kick.wav");
+                    kick1.play();
+                break;
+
+            case "Js":
+                    let kick2 = new Audio("sounds/key_kick2.wav");
+                    kick2.play();
+                break;
+          
+              case "N":
+                let tomhigh = new Audio("sounds/key_tom-high.wav");
+                tomhigh.play();
+                break;
+          
+              case "J":
+                let tommid = new Audio("sounds/key_tom-mid.wav");
+                tommid.play();
+                break;
+          
+              case "M":
+                let tomlow = new Audio("sounds/key_tom-low.wav");
+                tomlow.play();
+                break;
+          
+              case "I":
+                let keycrash = new Audio("sounds/key_crash.wav");
+                keycrash.play();
+                break;
+              case "S":
+                let ride = new Audio("sounds/key_ride.wav");
+                ride.play();
+                break;
+              case "U":
+                let hithato = new Audio("sounds/key_hihat-open.wav");
+                hithato.play();
+                break;
+              case "T":
+                let hihatc = new Audio("sounds/key_hihat-close.wav");
+                hihatc.play();
+                break;
+        }
+    }
+
+    //detect keyboard press
+
+    
+document.addEventListener("keypress", function (event) {
+  makeSound(event.key);
+  
+}
+);
+
+  
+</script>
+</body>
+</html>
