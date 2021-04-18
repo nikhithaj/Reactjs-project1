@@ -1,18 +1,22 @@
+
 [
+    
+
+
     {
-        "title" :"You're 3rd place right now in a race. What place are you in when you pass the person in 2nd place?",
-        "choices":[ "1st",
-        "2nd",
-        "3rd",
-        "None of the above"
+        "title" :"What is the full form of Ajax?",
+        "choices":[ "Asynchronous JavaScript And XML",
+        "Asynchronous jQuery And XML",
+        "Asynchronous JavaScript And XHTML",
+        "Asynchronous jQuery And XHTML"
     ],
         "correctAnswer": 0
     
     },
     {
-        "title" :"How many months have 28 days? ",
-        "choices":["2",
-        "1",
+        "title" :"In AJAX you can ",
+        "choices":["Update a web page without reloading the page",
+        "Receive data from a server - after the page has loaded",
         "Send data to a server - in the background",
         "All of the above"
     ],
@@ -86,8 +90,16 @@
         "None of the above"],
         "correctAnswer":0
     
+    },
+    {
+        "title" :"How many event listeners can you add to a single element?",
+        "choices":["Only one",
+        "As many as you want",
+        "Two",
+        "None of the above"],
+        "correctAnswer":2
+    
     }
-   
     
    
     
