@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz App</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+		
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans"
+            rel="stylesheet"
+        />
+        <link rel="shortcut icon" href="" />
+    </head>
+
+    <html>
+	<!-- <center> <h2>Welcome to the quiz page! <span class="name"></span></h2> </center>	 -->
+<head>
+	<script>
+		//set minutes
+		var mins = 1;
+
+		//calculate the seconds
+		var secs = mins * 60;
+
+		//countdown function is evoked when page is loaded
+		function countdown() {
+			setTimeout('Decrement()', 60);
+		}
+
+		//Decrement function decrement the value.
+		function Decrement() {
+			if (document.getElementById) {
+				minutes = document.getElementById("minutes");
+				seconds = document.getElementById("seconds");
+
+				//if less than a minute remaining
+				//Display only seconds value.
+				if (seconds < 59) {
+					seconds.value = secs;
+				}
+
+				//Display both minutes and seconds
+				//getminutes and getseconds is used to
+				//get minutes and seconds
+				else {
+					minutes.value = getminutes();
+					seconds.value = getseconds();
+				}
+				//when less than a minute remaining
+				//colour of the minutes and seconds
+				//changes to red
+				if (mins < 1) {
+					minutes.style.color = "red";
+					seconds.style.color = "red";
+				}
+				//if seconds becomes zero,
+				//then page alert time up
+				if (mins < 0) {
+					alert('time up');
+					minutes.value = 0;
+					seconds.value = 0;
+				 }
+				//if seconds > 0 then seconds is decremented
+				else {
+					secs--;
+					setTimeout('Decrement()', 1000);
+				}
+			}
+		} 
+
+		function getminutes() {
+			//minutes is seconds divided by 60, rounded down
+			mins = Math.floor(secs / 60);
+			return mins;
+		}
+
+		function getseconds() {
+			//take minutes remaining (as seconds) away/
+			//from total seconds remaining
+			return secs - Math.round(mins * 60);
+		}
+	 </script>
+</head> 
+<!-- onload function is evoke when page is load -->
+<!--countdown function is called when page is loaded -->
+
+<body onload="countdown();">
+ <div>
+	<!-- <h4> Time Left ::   </h4>	    -->
+	<input id="minutes" type="text" style="width: 15px;
+				border: 10px; font-size: 20px;box-align: center;
+				font-weight: bold; color: rgb(187, 7, 7);"> <font size="5"> :
+							</font>
+			<input id="seconds" type="text" style="width: 25px;
+							border: 10px; font-size: 20px;
+							font-weight: bold; color: rgb(219, 11, 11);">
+		</div> 	
+
+        <div id="quiz">
+            <div id="question-title"></div>
+            <div id="choices"></div>
+            <button id="next-question" class="button">Next Question</button>
+        </div>
+
+	
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+        <script src="app.js"></script>
+
+        <!-- Templates  -->
+        <script id="choices-template" type="text/x-handlebars-template">
+            {{#each choices}}
+            <div class="choice">
+                <input type="radio" name="choices" id="choice{{@index}}" value="{{@index}}">
+                <label for="choice{{@index}}">{{ @this }}</label>
+            </div>
+            {{/each}}
+        </script>
+        <script id="title-template" type="text/x-handlebars-template">
+            {{ title }}
+        </script>
+        
+        <script id="finalScore-template" type="text/x-handlebars-template">
+            
+            <h1 style="text-align: center">Congratulations!!!</h1>
+            <h2 id="finalScore">You've scored {{ totalScore }} out of {{ questionsLength }}!</h2>
+			<center> <h2> <I> YOU HAVE COMPLETED THE QUIZ </I> </h2>  </center>
+			<br>
+			<br>
+			<br>
+			<img src="source.gif"  height="300" width="600">
+        </script>
+		
+       
+    </body>
+</html>
