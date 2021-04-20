@@ -1,0 +1,246 @@
+<html>
+<title> Calculator & BMI_Calculator </title>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script type="text/babel">
+  class App extends React.Component {
+    constructor(props) {
+                super(props);
+                this.state = {
+                    weight: "",
+                    Feet: "",
+                    Inches:"",
+                    Bmi: ""
+                };
+            }
+            <p>Your Output is :{this.state.res}</p> 
+    render() {
+      return (
+         Your BMI is :{this.state.Bmi}
+       
+           
+        );
+        }
+
+        calc=()=>{
+            let a = this.state.weight
+            let b = this.state.Feet * 0.3048
+            let c = this.state.Inches*0.0254
+            let d = b+c
+            let res = a/(d*d) 
+            this.setState({
+              Bmi:res
+
+            });
+            
+        }
+      }
+
+      ReactDOM.render(<App />, document.querySelector("#app"));
+
+    </script>
+    <script type="text/babel">
+
+      class App extends React.Component {
+    state = {
+    input1: "",
+    input2: "",
+    res:""
+  };
+
+        render() {
+          return (
+           <p>Your Output is :{this.state.res}</p>
+           );
+        }
+
+        updateInputValue = (e) => {
+    
+    this.setState({
+      input1: parseInt(e.target.value)
+    });
+  };
+
+ updateInputValue2 = (e) => {
+    
+    this.setState({
+      input2: parseInt(e.target.value)
+    });
+  };
+
+  add = () => {
+  
+    let a=this.state.input1
+    let b=this.state.input2
+    let c = a+b
+    this.setState({
+      res:c
+    });
+    return(
+     <p>Your Output is :{this.state.res}</p>
+    )
+  };
+
+    subtract = () => {
+  
+    let a=this.state.input1
+    let b=this.state.input2
+    let c = a-b
+    this.setState({
+      res:c
+    });
+   
+  };
+
+
+  mul = () => {
+  
+    let a=this.state.input1
+    let b=this.state.input2
+    let c = a*b
+    this.setState({
+      res:c
+    });
+   
+  };
+
+  div = () => {
+  
+    let a=this.state.input1
+    let b=this.state.input2
+    let c = a/b
+    this.setState({
+      res:c
+    });
+   
+  };
+
+ 
+
+  
+ 
+
+    reset= (event) => {
+                    this.setState({
+                        input1: "",
+                        input2: "",
+                        res:""
+        
+                    });
+                }
+
+
+      }
+
+      ReactDOM.render(<App />, document.querySelector("#app"));
+
+    </script>
+<style> 
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.left {
+  left: 0;
+  background-color: rgba(165, 170, 165, 0.76);
+}
+.right {
+  right: 0;
+  background-color: rgb(26, 156, 139);
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="center">
+<div class="split left">
+    <div id="app" />
+    <div id="mybmi">
+      <br>
+        <h1>   BMI <br> Calculator </h1>
+        <hr>
+        <p>Weight:</p>
+        <input onKeyPress={this.inputKeyPress} onChange={this.updateResponse1} value={this.state.weight} type="number" placeholder="Weight"/>
+        <p>Height:</p>
+        <input onKeyPress={this.inputKeyPress} onChange={this.updateResponse2} value={this.state.Feet} type="number" placeholder="Feet"/>
+        <br></br>
+        <br></br>
+        <input onKeyPress={this.inputKeyPress} onChange={this.updateResponse3} value={this.state.Inches} type="number" placeholder="Inches"/>
+        <br></br>
+      
+       
+        <button onClick={this.calc}>Calculate</button>
+        <br>
+        <br>
+        Your BMI is : 
+        <br>
+        
+        <br>
+
+      </div>
+      
+ 
+  </div>
+<div class="split right">
+    <div id="app" />
+   <br>
+          <div>
+            <h1> Simple Calculator</h1>
+            <hr>
+            <p>Input 1:</p>
+            <input onKeyPress={this.inputKeyPress} onChange={this.updateInputValue} value={this.state.input1} type="number" placeholder="first value" 
+             />
+            <p>Input 2:</p>
+            <input onKeyPress={this.inputKeyPress} onChange={this.updateInputValue2} value={this.state.input2} type="number" placeholder="second value"
+              />
+            <br></br>
+            <br></br>
+            <button onClick={this.add}>+</button>
+            <button onClick={this.subtract}>-</button>
+            <button onClick={this.mul}>*</button>
+            <button onClick={this.div}>/</button>
+            
+            
+            <br></br>
+            <br></br>
+          <script> 
+           <p> Your Output is : {this.state.res}</p> 
+        </script>
+           
+          </div>
+  </div>
+</div>
+</div> 
+<style>
+    
+  #app{
+    /* margin-top:10%; */
+    text-align:center;
+    border: 2px solid black ;
+    margin-left: 200px;
+    margin-right: 200px;  
+}
+
+button{
+  padding: 6px;
+  margin :4px;
+ 
+}
+</style>
+</body>
+</html> 
